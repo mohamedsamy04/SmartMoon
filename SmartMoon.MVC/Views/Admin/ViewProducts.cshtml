@@ -67,6 +67,7 @@
             </div>
             <div class="column">
                 <label for="filter-store">المخزن</label>
+                <div class="input-group">
                 <select id="filter-store">
                     <option value="">جميع المخازن</option>
                     @foreach (var inventory in Model.inventories)
@@ -74,6 +75,8 @@
                         <option value="@inventory.Name">@inventory.Name</option>
                     }
                 </select>
+                <button id="print-btn">طباعة الجرد</button>
+                </div>
             </div>
         </div>
 
@@ -154,6 +157,35 @@
                 }
             });
         });
+    </script>
+    <script>
+        document.getElementById("print-btn").addEventListener("click", function () {
+            var table = document.querySelector(".items-table").cloneNode(true);
+            var printWindow = window.open('', '', 'height=600, width=800');
+            printWindow.document.write('<html><head><title>طباعة الجدول</title>');
+
+            printWindow.document.write('<style>');
+            printWindow.document.write('table { width: 100%; border-collapse: collapse; direction: rtl; }');
+            printWindow.document.write('th, td { border: 1px solid black; padding: 8px; text-align: center; }');
+            printWindow.document.write('</style></head><body>');
+            printWindow.document.write('<h2>عرض الأصناف</h2>');
+
+            var rows = table.querySelectorAll('tr');
+            rows.forEach(function (row) {
+                var cells = row.querySelectorAll('td, th');
+                if (cells.length > 0) {
+                    row.removeChild(cells[cells.length - 3]);
+
+                    row.removeChild(cells[cells.length - 1]);
+                }
+            });
+
+            printWindow.document.write(table.outerHTML);
+            printWindow.document.write('</body></html>');
+            printWindow.document.close();
+            printWindow.print();
+        });
+
     </script>
 </body>
 </html>
