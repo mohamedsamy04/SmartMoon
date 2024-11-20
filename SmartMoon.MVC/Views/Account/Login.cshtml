@@ -32,7 +32,6 @@
                     <div class="div">
                         <h5>اسم المستخدم</h5>
                         <input asp-for="UserName" class="input" id="username" type="text" />
-                        <span asp-validation-for="UserName" class="text-danger"></span>
                     </div>
                 </div>
 
@@ -43,7 +42,6 @@
                     <div class="div">
                         <h5>كلمة المرور</h5>
                         <input asp-for="Password" class="input" id="password" type="password" />
-                        <span asp-validation-for="Password" class="text-danger"></span>
                     </div>
                 </div>
 
@@ -52,6 +50,33 @@
         </div>
     </div>
     <script src="~/js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        document.querySelector("form").addEventListener("submit", function (e) {
+            const username = document.getElementById("username").value.trim();
+            const password = document.getElementById("password").value.trim();
+
+            if (!username || !password) {
+                e.preventDefault(); 
+                Swal.fire({
+                    text: 'يرجى إدخال اسم المستخدم وكلمة المرور.',
+                    icon: 'warning',
+                    showConfirmButton: false,
+                    timer: 2000,
+                    toast: true,
+                    position: 'top-end',
+                    background: '#ffffff',
+                    iconColor: '#f0ad4e',
+                    customClass: {
+                        popup: 'small-toast',
+                        title: 'small-toast-title',
+                        content: 'small-toast-content'
+                    }
+                });
+            }
+        });
+
+    </script>
 </body>
 </html>
 

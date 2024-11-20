@@ -184,6 +184,57 @@
             <button type="button" onclick="window.print()" class="print-btn">طباعة الفاتورة</button>
         </form>
     </section>
+    <div class="invoice-container">
+        <div class="header">
+            <div class="details">
+                <p>رقم الفاتوره : <span></span></p>
+                <p>التاريخ : <span></span></p>
+                <p>العميل : <span></span></p>
+            </div>
+            <div class="logo">
+                <img src="~/img/smartmoon.jpg" alt="Logo">
+            </div>
+        </div>
+
+        <table class="invoice-table">
+            <thead>
+                <tr>
+                    <th>الصنف</th>
+                    <th>الكمية</th>
+                    <th>السعر</th>
+                    <th>الإجمالي</th>
+                    <th>المخزن</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+
+        <table class="totals">
+            <tr>
+                <th>الإجمالي</th>
+                <td></td>
+            </tr>
+            <tr>
+                <th>المدفوع</th>
+                <td></td>
+            </tr>
+            <tr>
+                <th>الباقي</th>
+                <td></td>
+            </tr>
+        </table>
+
+        <div class="footer">
+            <p>
+                الارجاع و الاستبدال خلال 14 يوما حسب المادة 17 من القانون رقم 181 لسنة 2018 بشرط سلامة البضاعة.
+                ملف ضريبي 55753/613/293/223/552/06/06368
+            </p>
+            <p>تم تسليم البضاعة بحالة جيدة وخالية من العيوب و الضمان مسئولية الشركة المصنعة.</p>
+            <p>العنوان: كفر الشيخ - بلطيم</p>
+            <p>رقم الهاتف: 010997626230</p>
+        </div>
+    </div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>

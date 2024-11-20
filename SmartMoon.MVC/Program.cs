@@ -69,7 +69,7 @@ namespace SmartMoon.MVC
 
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=Account}/{action=Login}/{id?}");
+                pattern: "{controller=account}/{action=login}/{id?}");
 
             app.Run();
         }

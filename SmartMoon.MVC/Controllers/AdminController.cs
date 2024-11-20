@@ -209,7 +209,7 @@ namespace SmartMoon.MVC.Controllers
                     CashPaid = model.CashPaid,
                     RemainingBalance = model.RemainingBalance,
                     MoneyDrawer = model.MoneyDrawer,
-                    TotalAmount = model.TotalAmount,
+                    TotalAmount = model.TotalAmount - (model.TotalAmount*model.DiscountAmount/100),
                     UserId = userId,
                     Date = DateTime.Now,
                     BillItems = model.Items.Select(item => new BuyBillItem
