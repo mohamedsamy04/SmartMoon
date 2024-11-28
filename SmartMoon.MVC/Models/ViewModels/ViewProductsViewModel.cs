@@ -16,6 +16,10 @@ namespace SmartMoon.MVC.Models.ViewModels
         [ValidateNever]
         public int Quantity { get; set; }
 
+        public int ProductId { get; set; }
+
+        public decimal PurchasePrice { get; set; }
+
 
 
 

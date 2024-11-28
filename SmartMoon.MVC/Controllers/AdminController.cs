@@ -2059,6 +2059,24 @@ namespace SmartMoon.MVC.Controllers
         };
             return View(model);
         }
+
+        [HttpPost]
+        public IActionResult UpdateProduct([FromBody] ProductUpdateViewModel model)
+        {
+            var product = context.products.FirstOrDefault(p => p.Id == model.ProductId);
+            if (product == null)
+            {
+                return NotFound(new { Message = "Product not found" });
+            }
+
+
+            product.Name = model.ProductName;
+            product.Price = model.Price;
+            context.SaveChanges();
+
+            return Ok(new { Message = "تم تعديل الصنف بنجاح" });
+        }
+
         [HttpGet]
         public JsonResult EmployeeSearch(string searchTerm)
         {
